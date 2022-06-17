@@ -1,0 +1,9 @@
+users
+- photo
+- nama
+- email
+- phone_number
+- password
+
+
+

@@ -1,9 +1,18 @@
 const db = require("../db");
 const model = require("../model/searchUserModel");
 
+// const jwt = require("jsonwebtoken");
+
 const getUsers = async (req, res) => {
   try {
     const getData = await model.getAllUser();
+
+    // ENCRYPT JWT
+    // var token = jwt.sign(
+    //   JSON.stringify(getData),
+    //   process.env.SECRET_KEY ||
+    //     "5e4abe48640c5751e0acf50c032dda3582aa09fe69e9e891e926d1a93798e8a2"
+    // );
 
     res.send({ data: getData.rows, jumlahData: getData.rowCount });
   } catch (error) {

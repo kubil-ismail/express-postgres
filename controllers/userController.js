@@ -1,18 +1,13 @@
 const model = require("../model/userModel");
+const bcrypt = require("bcrypt");
 
 const getUserId = async (req, res) => {
   try {
     // const { id } = req.params; // ini
     const { id } = req.query; // ini
 
-    var CryptoJS = require("crypto-js");
-
-    // Decrypt
-    var bytes = CryptoJS.AES.decrypt(id, "secret key 123");
-    var originalText = bytes.toString(CryptoJS.enc.Utf8);
-
-    if (parseInt(originalText)) {
-      const getData = await model.getUserById(originalText);
+    if (parseInt(id)) {
+      const getData = await model.getUserById(id);
       res.send({ data: getData.rows, jumlahData: getData.rowCount });
     } else {
       res.status(400).send("angka tidak valid");
@@ -24,9 +19,12 @@ const getUserId = async (req, res) => {
 
 const addUser = async (req, res) => {
   try {
-    const { name, email, job, education } = req.body;
+    const { name, email, job, education, password } = req.body;
 
-    const addUser = await model.addUser({ name, email });
+    const salt = bcrypt.genSaltSync(15); // generate random string
+    const hash = bcrypt.hashSync(password, salt); // hash password
+
+    const addUser = await model.addUser({ name, email, password: hash });
     const addUserDetail = await model.addDetailUser({
       userId: addUser.rows[0]?.id,
       job,

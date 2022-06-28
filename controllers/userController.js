@@ -24,7 +24,12 @@ const addUser = async (req, res) => {
     const salt = bcrypt.genSaltSync(15); // generate random string
     const hash = bcrypt.hashSync(password, salt); // hash password
 
-    const addUser = await model.addUser({ name, email, password: hash });
+    const addUser = await model.addUser({
+      name,
+      email,
+      password: hash,
+      photo: req.file?.path,
+    });
     const addUserDetail = await model.addDetailUser({
       userId: addUser.rows[0]?.id,
       job,

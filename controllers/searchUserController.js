@@ -14,7 +14,13 @@ const getUsers = async (req, res) => {
     //     "5e4abe48640c5751e0acf50c032dda3582aa09fe69e9e891e926d1a93798e8a2"
     // );
 
-    res.send({ data: getData.rows, jumlahData: getData.rowCount });
+    res.send({
+      data: getData.rows?.map((item) => ({
+        ...item,
+        ...{ photo: `http://localhost:8000/${item.photo}` },
+      })),
+      jumlahData: getData.rowCount,
+    });
   } catch (error) {
     res.status(400).send("ada yang error");
   }

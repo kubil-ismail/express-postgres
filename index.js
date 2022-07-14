@@ -45,6 +45,10 @@ app.use("/", cors(corsOptionsDelegate), userDetailRoutes);
 app.use("/", cors(corsOptionsDelegate), authRoutes);
 app.use("/", cors(corsOptionsDelegate), uploadRoutes);
 
+app.use("*", (req, res) => {
+  res.send("success");
+});
+
 // end of bottom code
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

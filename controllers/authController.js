@@ -23,7 +23,10 @@ const login = async (req, res) => {
           { expiresIn: "24h" }
         );
 
-        res.status(200).send(token);
+        res.status(200).send({
+          user: { ...getUserByEmail?.rows[0], ...{ password: null } },
+          token,
+        });
       } else {
         res.status(401).send("password tidak sesuai");
       }

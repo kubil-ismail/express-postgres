@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 8000;
+const port = 8500;
 const bodyParser = require("body-parser");
 const helmet = require("helmet");
 const cors = require("cors");
@@ -15,7 +15,12 @@ const uploadRoutes = require("./routes/upload/index");
 app.use(helmet());
 
 // use cors for all
-var allowlist = ["https://www.bca.co.id", "https://blubybcadigital.id"];
+var allowlist = [
+  "https://www.bca.co.id",
+  "https://blubybcadigital.id",
+  "http://localhost:3004",
+  "http://localhost:3000",
+];
 var corsOptionsDelegate = function (req, callback) {
   var corsOptions;
   if (allowlist.indexOf(req.header("Origin")) !== -1) {

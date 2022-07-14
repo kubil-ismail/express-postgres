@@ -9,7 +9,7 @@ Router.get("/users/find/id", controller.getUserId); // ke sini /users/find/id
 // POST PROFILE
 Router.post(
   "/users/add",
-  middleware.checkToken,
+  // middleware.checkToken,
   uploadMiddleware.uploadSingle,
   controller.addUser
 );

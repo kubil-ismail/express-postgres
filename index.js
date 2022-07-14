@@ -50,6 +50,6 @@ app.use("*", (req, res) => {
 });
 
 // end of bottom code
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`Example app listening on port ${port}`);
 });

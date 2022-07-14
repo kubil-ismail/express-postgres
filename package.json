@@ -12,9 +12,6 @@
     "pg": "^8.7.3",
     "uuid": "^8.3.2"
   },
-  "engines": {
-    "node": "14.x"
-  },
   "scripts": {
     "start": "node index.js"
   }

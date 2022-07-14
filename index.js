@@ -37,6 +37,11 @@ app.use("/", cors(corsOptionsDelegate), userRoutes);
 app.use("/", cors(corsOptionsDelegate), userDetailRoutes);
 app.use("/", cors(corsOptionsDelegate), authRoutes);
 
+
+app.use("*", (req, res) => {
+  res.send("Sukses")
+});
+
 // end of bottom code
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

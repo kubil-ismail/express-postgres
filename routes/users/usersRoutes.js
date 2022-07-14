@@ -6,7 +6,7 @@ const middleware = require("../../middleware/verifyToken");
 Router.get("/users/find/id", controller.getUserId); // ke sini /users/find/id
 
 // POST PROFILE
-Router.post("/users/add", middleware.checkToken, controller.addUser);
+Router.post("/users/add",  controller.addUser);
 
 // EDIT PROFILE
 Router.patch("/users/edit", middleware.checkToken, controller.editUser);

@@ -10,5 +10,8 @@
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.16",
     "pg": "^8.7.3"
+  },
+  "scripts": {
+    "start": "node index.js"
   }
 }

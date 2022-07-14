@@ -1,6 +1,7 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
-const port = 8000;
+const port = proess.env.PORT || 8000;
 const bodyParser = require("body-parser");
 const helmet = require("helmet");
 const cors = require("cors");
@@ -37,9 +38,8 @@ app.use("/", cors(corsOptionsDelegate), userRoutes);
 app.use("/", cors(corsOptionsDelegate), userDetailRoutes);
 app.use("/", cors(corsOptionsDelegate), authRoutes);
 
-
 app.use("*", (req, res) => {
-  res.send("Sukses")
+  res.send("Sukses");
 });
 
 // end of bottom code

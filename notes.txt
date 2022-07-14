@@ -4,3 +4,5 @@
 - LOGIN RECIVE JWT TOKEN
 - AKSES ENDPOINT YANG KRUSIAL (POST, PUT, DELETE) PAKAI TOKEN
 - REVISI KEMARIN HARUS SELESAI (MULTER, PAGINATION, DLL)
+
+psql --host=ec2-3-223-169-166.compute-1.amazonaws.com --user=dvfxaspozyuevm --database=d4br0enoh62u9r --port=5432 --password

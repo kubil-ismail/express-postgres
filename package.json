@@ -12,6 +12,8 @@
     "pg": "^8.7.3"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "npm run test && npm run build && node index.js",
+    "build": "echo \"Build process\"",
+    "test": "echo \"Starting Testing\""
   }
 }

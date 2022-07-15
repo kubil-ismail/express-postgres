@@ -25,6 +25,7 @@ const addUser = async (req, res) => {
     const hash = bcrypt.hashSync(password, salt); // hash password
 
     const addUser = await model.addUser({ name, email, password: hash });
+
     const addUserDetail = await model.addDetailUser({
       userId: addUser.rows[0]?.id,
       job,
@@ -37,6 +38,7 @@ const addUser = async (req, res) => {
       res.status(400).send("data gagal di tambah");
     }
   } catch (error) {
+    console.log(error);
     res.status(400).send("ada yang error");
   }
 };

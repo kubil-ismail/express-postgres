@@ -15,7 +15,7 @@ const authRoutes = require("./routes/auth/index");
 app.use(helmet());
 
 // use cors for all
-var allowlist = ["https://www.bca.co.id", "https://blubybcadigital.id"];
+var allowlist = ["https://learn-react-pijar.web.app"];
 var corsOptionsDelegate = function (req, callback) {
   var corsOptions;
   if (allowlist.indexOf(req.header("Origin")) !== -1) {
